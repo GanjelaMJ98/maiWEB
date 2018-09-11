@@ -11,15 +11,45 @@ class User:
         print("User:",self.name+" "+self.lastname)
         print("Number",self.number)
         print()
-a = User('Pavel',"Ganjela",89017014147,"Her21","MAI")
+
+a = User('Pavel',"Ganjela",89017014142,"Her21","MAI")
+b = User('Artem', "Zvezdin",89345677328, "Zad42","MAI")
+
 
 class PhoneBook:
     list = []
     def add(self,user):
         self.list.append(user)
-        self.list[0].printUser()
+    def printBook(self):
+    	for user in self.list:
+    		user.printUser()
+    def correct(self,name,lastname):
+    	for user in  self.list:
+    		if user.name == name and user.lastname == lastname:
+    			user.printUser()
+    			field = str(input("Input field to correct: "))
+    			newObject = input("New: ")
+    			if field == "name":
+    				user.name = newObject
+    			elif field =='lastname':
+    				user.lastname = newObject
+    			elif field =='number':
+    				user.number = newObject
+    			elif field =='adress':
+    				user.adress = newObject
+    			print("Ok:")
+    			user.printUser()
+    			return
+    	print("Not Found")
 
 
 if __name__ == "__main__":
     pb = PhoneBook()
+    pb.add(b)
     pb.add(a)
+    pb.printBook()
+    name = input("Name: ")
+    lastname = input("Lastname: ")
+    pb.correct(name,lastname)
+    pb.printBook()
+
