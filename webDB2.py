@@ -42,7 +42,6 @@ class Phonebook:
 
 	def Insert(self, contact):
 		for user in self.l2:
-
 			if user.Returner() == contact.Returner():
 				print("DOUBLE CONTACT")
 				return -1
